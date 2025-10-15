@@ -34,10 +34,10 @@ Performs  feature engineering
 Splits data into train/test sets 
 #### model_trainer.py
 Trains four classifiers:
-Random Forest
-Logistic Regression
-RBF SVM
-Quadratic Discriminant Analysis (QDA)
+Random Forest   
+Logistic Regression   
+RBF SVM   
+Quadratic Discriminant Analysis (QDA)   
 Saves trained models and scaler.pkl in a models/ directory
 #### model_tester.py
 Evaluates each model with classification_report (precision, recall, F1-score)
@@ -76,12 +76,17 @@ Run model_tester.py:
 python model_tester.py
 ````
 ## Implementation Overview
-Feature Engineering:
-X1 = amplifier_target_db - amplifier_gain_db
-X2 = span_loss_target_db - span_loss_db
+Feature Engineering:  
+X1 = amplifier_target_db - amplifier_gain_db   
+X2 = span_loss_target_db - span_loss_db   
 Include signal_db and osnr_db for modeling
-Model Selection: Random Forest, Logistic Regression, RBF SVM, and QDA
-Imbalance Handling: class_weight='balanced' used for Random Forest, Logistic Regression, and RBF SVM
-Data Preparation: Features standardized using StandardScaler. Stratified train-test split ensures class balance
-Training and Saving: All models trained on the 4-feature dataset and saved using joblib
-Evaluation: Test set evaluation includes precision, recall, F1-score, and decision boundary visualization (2D using X1/X2)
+
+
+Model Selection: Random Forest, Logistic Regression, RBF SVM, and QDA 
+
+Imbalance Handling: class_weight='balanced' used for Random Forest, Logistic Regression, and RBF SVM 
+
+Data Preparation: Features standardized using StandardScaler. Stratified train-test split ensures class balance 
+ 
+Training and Saving: All models trained on the 4-feature dataset and saved using joblib  
+ Test set evaluation includes precision, recall, F1-score, and decision boundary visualization (2D using X1/X2)
